@@ -1,11 +1,11 @@
 import React from 'react';
-import { InputField, inputFields } from './utitls/inputData';
-import { RegistrationFields } from './RegistrationFields/RegistrationFields';
 import {
   FieldErrors,
   UseFormHandleSubmit,
   UseFormRegister,
 } from 'react-hook-form';
+import { RegistrationFields } from './RegistrationFields/RegistrationFields';
+import { inputFields } from './utitls/inputData';
 import { Inputs } from './utitls/types';
 
 type RegistrationFormProps = {

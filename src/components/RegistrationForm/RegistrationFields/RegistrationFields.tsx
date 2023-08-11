@@ -2,9 +2,8 @@ import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import SelectInput from '../SelectInput/SelectInput';
 import TextareaInput from '../TextAreaInput/TextAreaInput';
 import { TextInput } from '../TextInput/TextInput';
-import { professionOptions } from '../utitls/options';
 import { Inputs } from '../utitls/types';
-import { InputField } from '../utitls/inputData';
+import { InputField, professionOptions } from '../utitls/inputData';
 
 type RegistrationFieldProps = {
   field: InputField;

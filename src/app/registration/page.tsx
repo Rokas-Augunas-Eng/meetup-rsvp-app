@@ -24,6 +24,10 @@ export default function Registration() {
     reset();
   };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleBackClick = (event: { preventDefault: () => void }) => {
     if (isSubmitting || isDirty) {
       event.preventDefault();
@@ -49,14 +53,13 @@ export default function Registration() {
       <div className="flex flex-col justify-center items-center mt-8">
         <Modal
           isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
           title="Unsaved Changes"
           text=" You have unsaved changes. Are you sure you want to leave?"
           confirmButton={{
             text: 'Yes, Discard Change',
-            function: handleConfirmBack,
+            onPrimaryAction: handleConfirmBack,
           }}
-          cancelButton={{ text: 'Cancel' }}
+          cancelButton={{ text: 'Cancel', onClose: closeModal }}
         />
         <h1 className="text-2xl font-semibold mb-4 text-center">
           Hello, please fill out the registration form for the event!
