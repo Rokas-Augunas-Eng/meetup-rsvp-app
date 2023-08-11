@@ -20,6 +20,7 @@ export const Modal: React.FC<ModalProps> = ({
       isOpen={isModalOpen}
       onRequestClose={cancelButton.onClose}
       contentLabel="Unsaved Changes"
+      ariaHideApp={false}
       style={{
         overlay: {
           display: 'flex',

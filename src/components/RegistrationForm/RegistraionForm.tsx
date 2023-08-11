@@ -6,13 +6,14 @@ import {
 } from 'react-hook-form';
 import { RegistrationFields } from './RegistrationFields/RegistrationFields';
 import { inputFields } from './utitls/inputData';
-import { Inputs } from './utitls/types';
+import { FormData, Inputs } from '@/components/RegistrationForm/utitls/types';
 
 type RegistrationFormProps = {
   register: UseFormRegister<Inputs>;
   errors: FieldErrors<Inputs>;
-  handleSubmit: UseFormHandleSubmit<Inputs, undefined>;
-  onSubmit: () => void;
+  handleSubmit: UseFormHandleSubmit<Inputs>;
+  // eslint-disable-next-line no-unused-vars
+  onSubmitForm: (data: FormData) => void;
   isSubmitting: boolean;
 };
 
@@ -20,7 +21,7 @@ export const RegistraionForm: React.FC<RegistrationFormProps> = ({
   handleSubmit,
   register,
   isSubmitting,
-  onSubmit,
+  onSubmitForm,
   errors,
 }) => {
   return (
@@ -30,7 +31,7 @@ export const RegistraionForm: React.FC<RegistrationFormProps> = ({
       </h1>
 
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmitForm)}
         className="bg-white p-6 rounded-md shadow-md w-96"
       >
         {inputFields.map((field, index) => (

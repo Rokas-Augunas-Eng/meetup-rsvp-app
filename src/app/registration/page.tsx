@@ -1,15 +1,16 @@
 'use client';
+import { submitFormData } from '@/api/submitFormData';
 import { Modal } from '@/components/Modal/Modal';
-import { RegistrationFields } from '@/components/RegistrationForm/RegistrationFields/RegistrationFields';
-import { inputFields } from '@/components/RegistrationForm/utitls/inputData';
 import { FormData, Inputs } from '@/components/RegistrationForm/utitls/types';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
+import { RegistraionForm } from '@/components/RegistrationForm/RegistraionForm';
 
 export default function Registration() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const router = useRouter();
 
   const {
@@ -19,9 +20,13 @@ export default function Registration() {
     formState: { errors, isSubmitting, isDirty },
   } = useForm<Inputs>();
 
-  const onSubmit = (data: FormData) => {
+  const onSubmitForm = async (data: FormData) => {
     data.dob = new Date(data.dob);
-    reset();
+    const isSuccess = await submitFormData(data);
+    if (isSuccess) {
+      reset();
+      setIsFormSubmitted(true);
+    }
   };
 
   const closeModal = () => {
@@ -50,44 +55,35 @@ export default function Registration() {
           Back
         </Link>
       </div>
-      <div className="flex flex-col justify-center items-center mt-8">
-        <Modal
-          isModalOpen={isModalOpen}
-          title="Unsaved Changes"
-          text=" You have unsaved changes. Are you sure you want to leave?"
-          confirmButton={{
-            text: 'Yes, Discard Change',
-            onPrimaryAction: handleConfirmBack,
-          }}
-          cancelButton={{ text: 'Cancel', onClose: closeModal }}
-        />
-        <h1 className="text-2xl font-semibold mb-4 text-center">
-          Hello, please fill out the registration form for the event!
-        </h1>
-
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="bg-white p-6 rounded-md shadow-md w-96"
-        >
-          {inputFields.map((field, index) => (
-            <RegistrationFields
-              key={index}
-              field={field}
-              register={register}
-              errors={errors}
-            />
-          ))}
-
-          <input
-            type="submit"
-            disabled={isSubmitting}
-            value={isSubmitting ? 'Submitting...' : 'Submit'}
-            className={`px-4 py-2 w-full cursor-pointer bg-primaryColor text-white rounded-md hover:opacity-70 ${
-              isSubmitting && 'pointer-events-none disabled:opacity-30'
-            }`}
+      {isFormSubmitted ? (
+        <div className="text-center">
+          <h1 className="text-2xl font-semibold mb-4">
+            Form Submitted Successfully!
+          </h1>
+          <p>Thank you for your submission.</p>
+        </div>
+      ) : (
+        <div className="flex flex-col justify-center items-center mt-8">
+          <Modal
+            isModalOpen={isModalOpen}
+            title="Unsaved Changes"
+            text=" You have unsaved changes. Are you sure you want to leave?"
+            confirmButton={{
+              text: 'Yes, Discard Change',
+              onPrimaryAction: handleConfirmBack,
+            }}
+            cancelButton={{ text: 'Cancel', onClose: closeModal }}
           />
-        </form>
-      </div>
+
+          <RegistraionForm
+            handleSubmit={handleSubmit}
+            register={register}
+            isSubmitting={isSubmitting}
+            onSubmitForm={onSubmitForm}
+            errors={errors}
+          />
+        </div>
+      )}
     </div>
   );
 }
