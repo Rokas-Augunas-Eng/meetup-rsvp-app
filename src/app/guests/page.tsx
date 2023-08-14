@@ -4,18 +4,12 @@ import unidecode from 'unidecode';
 import { GUEST_DATA } from '@/data/GUEST_DATA';
 import Link from 'next/link';
 
-type Guest = {
-  id: number;
-  full_name: string;
-  locality: string;
-};
-
 const removeAccents = (text: string) => unidecode(text);
 
 export default function GuestsPage(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const filteredGuests: Guest[] = GUEST_DATA.filter(
-    (guest: Guest) =>
+  const filteredGuests = GUEST_DATA.filter(
+    (guest) =>
       removeAccents(guest.full_name.toLowerCase()).includes(
         removeAccents(searchTerm.toLowerCase())
       ) ||
@@ -45,7 +39,7 @@ export default function GuestsPage(): JSX.Element {
           className="w-1/5 px-4 py-2 rounded-md border focus:ring focus:outline-none focus:ring-primaryColor"
         />
         <ul className="mt-6 w-full max-w-md">
-          {filteredGuests.map((guest: Guest) => (
+          {filteredGuests.map((guest) => (
             <li key={guest.id} className="border-b py-3">
               <a
                 href={`/guests/${guest.id}`}
