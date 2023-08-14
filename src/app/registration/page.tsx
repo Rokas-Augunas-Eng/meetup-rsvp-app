@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { RegistraionForm } from '@/components/RegistrationForm/RegistraionForm';
 
-export default function Registration() {
+export default function RegistrationPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const router = useRouter();

@@ -26,7 +26,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         {...register(name, {
           required: ValidationErrorMessages.required,
         })}
-        className="mt-1 p-2 border rounded-md w-full bg-white focus:outline-none focus:ring focus:border-primaryColor"
+        className="mt-1 p-2 border rounded-md w-full bg-white focus:outline-none focus:ring focus:ring-primaryColor"
       >
         <option value=""></option>
         {options.map((option) => (
