@@ -15,7 +15,6 @@ export type GuestProps = {
 };
 
 export const GuestInfo: React.FC<GuestProps> = ({ guest }) => {
-  console.log(guest);
   const age = calculateAge(guest.dob);
 
   return (

@@ -4,10 +4,10 @@ import { GUEST_DATA } from '@/data/GUEST_DATA';
 import Link from 'next/link';
 
 export default function GuestPage({ params }: { params: { id: string } }) {
-  const guest = GUEST_DATA.find((guest) => guest.id === parseInt(params.id));
+  const guest = GUEST_DATA.find((user) => user.id === parseInt(params.id));
 
   if (!guest) {
-    return <div>User not found</div>;
+    return <div>Guest not found</div>;
   }
 
   return (
