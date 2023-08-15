@@ -1,10 +1,10 @@
 'use client';
-import React, { useState } from 'react';
-import unidecode from 'unidecode';
-import { GUEST_DATA } from '@/data/GUEST_DATA';
-import Link from 'next/link';
 import { GuestList } from '@/components/GuestList/GuestLIst';
 import { Input } from '@/components/Input/Input';
+import { LinkButton } from '@/components/LinkButton/LinkButton';
+import { GUEST_DATA } from '@/data/GUEST_DATA';
+import { useState } from 'react';
+import unidecode from 'unidecode';
 
 const removeAccents = (text: string) => unidecode(text);
 
@@ -23,12 +23,7 @@ export default function GuestsPage(): JSX.Element {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="w-full h-14 flex items-center bg-white shadow">
-        <Link
-          href="/"
-          className="flex items-center justify-center p-2 w-20 ml-5 text-white bg-primaryColor rounded-md hover:opacity-70"
-        >
-          Back
-        </Link>
+        <LinkButton name="Back" />
       </div>
 
       <div className="flex flex-col items-center py-8">

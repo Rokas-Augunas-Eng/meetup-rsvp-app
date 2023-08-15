@@ -1,12 +1,12 @@
 'use client';
 import { submitFormData } from '@/api/submitFormData';
+import { LinkButton } from '@/components/LinkButton/LinkButton';
 import { Modal } from '@/components/Modal/Modal';
+import { RegistraionForm } from '@/components/RegistrationForm/RegistraionForm';
 import { FormData, Inputs } from '@/components/RegistrationForm/utitls/types';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { RegistraionForm } from '@/components/RegistrationForm/RegistraionForm';
 
 export default function RegistrationPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,15 +45,9 @@ export default function RegistrationPage() {
   };
 
   return (
-    <div className="min-h-screen">
-      <div className="w-full h-14 flex items-center ">
-        <Link
-          href="/"
-          onClick={handleBackClick}
-          className="flex justify-center p-2 border ml-5 w-20 rounded-md hover:opacity-70 bg-primaryColor text-white"
-        >
-          Back
-        </Link>
+    <div className="min-h-screen bg-gray-100">
+      <div className="w-full h-14 flex items-center bg-white shadow">
+        <LinkButton name="Back" onClick={handleBackClick} />
       </div>
       {isFormSubmitted ? (
         <div className="text-center">
@@ -63,7 +57,7 @@ export default function RegistrationPage() {
           <p>Thank you for your submission.</p>
         </div>
       ) : (
-        <div className="flex flex-col justify-center items-center mt-8">
+        <div className="flex flex-col justify-center items-center py-8">
           <Modal
             isModalOpen={isModalOpen}
             title="Unsaved Changes"

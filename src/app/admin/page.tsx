@@ -3,18 +3,13 @@ import { CustomBarChart } from '@/components/CustomBarChart/CustomBarChart';
 import { ageCounts } from '@/components/CustomBarChart/utitls/ageGroup';
 import { guestCount } from '@/components/CustomBarChart/utitls/guestGroup';
 import { professionCounts } from '@/components/CustomBarChart/utitls/professionGroup';
-import Link from 'next/link';
+import { LinkButton } from '@/components/LinkButton/LinkButton';
 
 export default function AdminPage() {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="w-full h-14 flex items-center bg-white shadow">
-        <Link
-          href="/"
-          className="flex justify-center p-2 border ml-5 w-20 rounded-md hover:opacity-70 bg-primaryColor text-white"
-        >
-          Back
-        </Link>
+        <LinkButton name="Back" />
       </div>
       <div className="flex flex-col items-center py-8">
         <CustomBarChart
