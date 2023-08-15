@@ -2,7 +2,7 @@ export const GUEST_DATA = [
   {
     id: 1,
     full_name: 'Temple Seabourne',
-    dob: '12/26/1963',
+    dob: '12/26/2000',
     address: 'Apt 1317',
     locality: 'Lasek',
     country: 'Poland',
@@ -12,7 +12,7 @@ export const GUEST_DATA = [
   {
     id: 2,
     full_name: 'Berk Albury',
-    dob: '08/26/1977',
+    dob: '08/26/2007',
     address: 'Apt 49',
     locality: 'Eṭ Ṭaiyiba',
     country: 'Israel',
