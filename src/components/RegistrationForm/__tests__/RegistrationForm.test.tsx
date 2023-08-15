@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { RegistraionForm } from '../RegistraionForm';
+import { RegistrationForm } from '../RegistraionForm';
 
 describe('RegistrationForm component', () => {
   const mockHandleSubmit = jest.fn();
@@ -17,11 +17,11 @@ describe('RegistrationForm component', () => {
 
   it('renders correctly with default props', () => {
     render(
-      <RegistraionForm
+      <RegistrationForm
         handleSubmit={mockHandleSubmit}
         register={mockRegister}
         isSubmitting={false}
-        onSubmit={mockOnSubmit}
+        onSubmitForm={mockOnSubmit}
         errors={mockErrors}
       />
     );
@@ -36,11 +36,11 @@ describe('RegistrationForm component', () => {
 
   it('submits the form on button click', async () => {
     render(
-      <RegistraionForm
+      <RegistrationForm
         handleSubmit={mockHandleSubmit}
         register={mockRegister}
         isSubmitting={false}
-        onSubmit={mockOnSubmit}
+        onSubmitForm={mockOnSubmit}
         errors={mockErrors}
       />
     );
@@ -54,11 +54,11 @@ describe('RegistrationForm component', () => {
 
   it('disables the submit button while submitting', async () => {
     render(
-      <RegistraionForm
+      <RegistrationForm
         handleSubmit={mockHandleSubmit}
         register={mockRegister}
         isSubmitting={true}
-        onSubmit={mockOnSubmit}
+        onSubmitForm={mockOnSubmit}
         errors={mockErrors}
       />
     );
@@ -67,6 +67,4 @@ describe('RegistrationForm component', () => {
       screen.getByRole('button', { name: 'Submitting...' })
     ).toBeDisabled();
   });
-
-  // Add more tests as needed
 });

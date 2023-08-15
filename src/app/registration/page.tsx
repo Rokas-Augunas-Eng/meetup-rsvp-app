@@ -2,7 +2,7 @@
 import { submitFormData } from '@/api/submitFormData';
 import { LinkButton } from '@/components/LinkButton/LinkButton';
 import { Modal } from '@/components/Modal/Modal';
-import { RegistraionForm } from '@/components/RegistrationForm/RegistraionForm';
+import { RegistrationForm } from '@/components/RegistrationForm/RegistraionForm';
 import { FormData, Inputs } from '@/components/RegistrationForm/utitls/types';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -20,7 +20,7 @@ export default function RegistrationPage() {
     formState: { errors, isSubmitting, isDirty },
   } = useForm<Inputs>();
 
-  const onSubmitForm = async (data: FormData) => {
+  const onSubmitForm = async (data: FormData<Inputs>) => {
     data.dob = new Date(data.dob);
     const isSuccess = await submitFormData(data);
     if (isSuccess) {
@@ -50,8 +50,8 @@ export default function RegistrationPage() {
         <LinkButton name="Back" onClick={handleBackClick} />
       </div>
       {isFormSubmitted ? (
-        <div className="text-center">
-          <h1 className="text-2xl font-semibold mb-4">
+        <div className="text-center m-12">
+          <h1 className="text-2xl font-semibold">
             Form Submitted Successfully!
           </h1>
           <p>Thank you for your submission.</p>
@@ -69,7 +69,7 @@ export default function RegistrationPage() {
             cancelButton={{ text: 'Cancel', onClose: closeModal }}
           />
 
-          <RegistraionForm
+          <RegistrationForm
             handleSubmit={handleSubmit}
             register={register}
             isSubmitting={isSubmitting}

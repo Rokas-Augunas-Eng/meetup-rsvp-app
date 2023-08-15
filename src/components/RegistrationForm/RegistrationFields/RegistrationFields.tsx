@@ -1,26 +1,30 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import SelectInput from '../SelectInput/SelectInput';
-import TextareaInput from '../TextAreaInput/TextAreaInput';
+import {
+  FieldErrors,
+  FieldPath,
+  FieldValues,
+  UseFormRegister,
+} from 'react-hook-form';
+import { SelectInput } from '../SelectInput/SelectInput';
+import { TextareaInput } from '../TextAreaInput/TextAreaInput';
 import { TextInput } from '../TextInput/TextInput';
-import { Inputs } from '../utitls/types';
 import { InputField, professionOptions } from '../utitls/inputData';
 
-type RegistrationFieldProps = {
+type RegistrationFieldProps<T extends FieldValues> = {
   field: InputField;
-  register: UseFormRegister<Inputs>;
-  errors: FieldErrors<Inputs>;
+  register: UseFormRegister<T>;
+  errors: FieldErrors;
 };
 
-export const RegistrationFields: React.FC<RegistrationFieldProps> = ({
+export const RegistrationFields = <T extends FieldValues>({
   field,
   register,
   errors,
-}) => {
+}: RegistrationFieldProps<T>) => {
   if (field.component === 'textInput') {
     return (
       <TextInput
         label={field.label}
-        name={field.name}
+        name={field.name as FieldPath<T>}
         type={field.type}
         register={register}
         errors={errors}
@@ -30,7 +34,7 @@ export const RegistrationFields: React.FC<RegistrationFieldProps> = ({
     return (
       <SelectInput
         label="Profession"
-        name="profession"
+        name={'profession' as FieldPath<T>}
         options={professionOptions}
         register={register}
         errors={errors}
@@ -40,7 +44,7 @@ export const RegistrationFields: React.FC<RegistrationFieldProps> = ({
     return (
       <TextareaInput
         label="Address"
-        name="address"
+        name={'address' as FieldPath<T>}
         register={register}
         errors={errors}
         value={50}

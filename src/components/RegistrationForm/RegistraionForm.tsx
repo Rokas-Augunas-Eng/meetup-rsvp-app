@@ -1,29 +1,27 @@
-import React from 'react';
 import {
   FieldErrors,
+  FieldValues,
   UseFormHandleSubmit,
   UseFormRegister,
 } from 'react-hook-form';
 import { RegistrationFields } from './RegistrationFields/RegistrationFields';
 import { inputFields } from './utitls/inputData';
-import { FormData, Inputs } from '@/components/RegistrationForm/utitls/types';
 
-type RegistrationFormProps = {
-  register: UseFormRegister<Inputs>;
-  errors: FieldErrors<Inputs>;
-  handleSubmit: UseFormHandleSubmit<Inputs>;
-  // eslint-disable-next-line no-unused-vars
-  onSubmitForm: (data: FormData) => void;
+type RegistrationFormProps<T extends FieldValues> = {
+  register: UseFormRegister<T>;
+  errors: FieldErrors;
+  handleSubmit: UseFormHandleSubmit<T>;
+  onSubmitForm: (data: T) => void;
   isSubmitting: boolean;
 };
 
-export const RegistraionForm: React.FC<RegistrationFormProps> = ({
+export const RegistrationForm = <T extends FieldValues>({
   handleSubmit,
   register,
   isSubmitting,
   onSubmitForm,
   errors,
-}) => {
+}: RegistrationFormProps<T>) => {
   return (
     <>
       <h1 className="text-2xl font-semibold mb-4 text-center">

@@ -1,8 +1,8 @@
-import { FormData } from '@/components/RegistrationForm/utitls/types';
+import { FormData, Inputs } from '@/components/RegistrationForm/utitls/types';
 
 const apiEndpoint = 'https://form-submission.free.beeceptor.com';
 
-export async function submitFormData(data: FormData): Promise<boolean> {
+export async function submitFormData(data: FormData<Inputs>): Promise<boolean> {
   try {
     const response = await fetch(apiEndpoint, {
       method: 'POST',
