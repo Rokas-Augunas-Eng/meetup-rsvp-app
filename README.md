@@ -1,36 +1,52 @@
+# Meetup-rsvp-app
+
+## Table of Contents
+
+- General info
+- Setup
+- Results
+- Improvements
+
+## General info
+
+An event app, which has three features. In the first screen the user can RSVP to the event using a form. In the second screen, the user can look up people who have RSVP'd to the event and search them by their name or locality. Lastly, in the third screen the admin has access to bar graphs about the users. The app uses Next.js, TypeScript and Tailwindcss.
+
+## Setup
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
-
-First, run the development server:
+First install dependencies, run the following in the terminal:
 
 ```bash
-npm run dev
-# or
+yarn install
+```
+
+Second, run the development server:
+
+```bash
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Results
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Home screen
+<img width="1024" alt="Screenshot 2023-08-16 at 07 43 47" src="https://github.com/Rokas-Augunas-Eng/meetup-rsvp-app/assets/78915609/cc5292f5-859f-497d-8c43-2148fb6207b6">
 
-## Learn More
+### Registration Form
+<img width="1719" alt="Screenshot 2023-08-16 at 07 44 40" src="https://github.com/Rokas-Augunas-Eng/meetup-rsvp-app/assets/78915609/40d4fcae-cfc8-4fbc-bc1d-a7025e877c56">
 
-To learn more about Next.js, take a look at the following resources:
+### Guest Info
+<img width="1719" alt="Screenshot 2023-08-16 at 07 45 03" src="https://github.com/Rokas-Augunas-Eng/meetup-rsvp-app/assets/78915609/baae5449-bdfe-43b8-956e-145b4b299417">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<img width="1719" alt="Screenshot 2023-08-16 at 07 45 08" src="https://github.com/Rokas-Augunas-Eng/meetup-rsvp-app/assets/78915609/339cc286-609f-4184-9509-34b61d1ea09b">
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Admin Panel
+<img width="1719" alt="Screenshot 2023-08-16 at 07 46 50" src="https://github.com/Rokas-Augunas-Eng/meetup-rsvp-app/assets/78915609/ded72c32-77b9-43c5-a997-0098142b6d80">
 
-## Deploy on Vercel
+## Improvements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-# meetup-rsvp
+- More robust test to be written
+- Add more validation checks to the registration form
+- Did not implement the graph by locality. A better approach would be to implement by continent
