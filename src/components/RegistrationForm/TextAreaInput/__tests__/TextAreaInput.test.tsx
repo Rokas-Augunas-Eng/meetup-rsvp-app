@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import TextareaInput from '../TextAreaInput';
+import { TextareaInput } from '../TextAreaInput';
 
 describe('TextareaInput component', () => {
   const mockRegister = jest.fn();

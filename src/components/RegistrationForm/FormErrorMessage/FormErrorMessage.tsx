@@ -1,8 +1,15 @@
 import { ErrorMessage } from '@hookform/error-message';
-import React from 'react';
-import { ErrorProps } from '../utitls/types';
+import { FieldErrors } from 'react-hook-form';
 
-export const FormErrorMessage: React.FC<ErrorProps> = ({ errors, name }) => {
+type FormErrorMessageProps = {
+  name: string;
+  errors: FieldErrors;
+};
+
+export const FormErrorMessage: React.FC<FormErrorMessageProps> = ({
+  errors,
+  name,
+}) => {
   return (
     <ErrorMessage
       errors={errors}

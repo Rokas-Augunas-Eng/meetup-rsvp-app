@@ -1,24 +1,27 @@
 import { FormErrorMessage } from '@/components/RegistrationForm/FormErrorMessage/FormErrorMessage';
 import { ValidationErrorMessages } from '@/components/RegistrationForm/utitls/enums';
-import React from 'react';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { Inputs } from '../utitls/types';
+import {
+  FieldErrors,
+  FieldValues,
+  Path,
+  UseFormRegister,
+} from 'react-hook-form';
 
-export type TextareaInputProps = {
+export type TextareaInputProps<T extends FieldValues> = {
   label: string;
-  name: keyof Inputs;
-  register: UseFormRegister<Inputs>;
-  errors: FieldErrors<Inputs>;
+  name: Path<T>;
+  register: UseFormRegister<T>;
+  errors: FieldErrors;
   value: number;
 };
 
-const TextareaInput: React.FC<TextareaInputProps> = ({
+export const TextareaInput = <T extends FieldValues>({
   label,
   name,
   register,
   errors,
   value,
-}) => {
+}: TextareaInputProps<T>) => {
   return (
     <div className="mb-4">
       <label>{label}</label>
@@ -36,5 +39,3 @@ const TextareaInput: React.FC<TextareaInputProps> = ({
     </div>
   );
 };
-
-export default TextareaInput;

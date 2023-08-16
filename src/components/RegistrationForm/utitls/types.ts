@@ -5,9 +5,12 @@ export type ErrorProps = {
   name: string;
 };
 
-export type FormData = {
-  [key: string]: string | number | Date;
+export type FormData<T> = {
+  [key in keyof T]: string | number | Date;
 };
+
+export type InputType = 'text' | 'date' | undefined;
+
 export type Inputs = {
   fullName: string;
   age: string;

@@ -1,24 +1,27 @@
 import { FormErrorMessage } from '@/components/RegistrationForm/FormErrorMessage/FormErrorMessage';
 import { ValidationErrorMessages } from '@/components/RegistrationForm/utitls/enums';
-import React from 'react';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { Inputs } from '../utitls/types';
+import {
+  FieldErrors,
+  FieldValues,
+  Path,
+  UseFormRegister,
+} from 'react-hook-form';
 
-export type SelectInputProps = {
+export type SelectInputProps<T extends FieldValues> = {
   label: string;
-  name: keyof Inputs;
+  name: Path<T>;
   options: { value: string; label: string }[];
-  register: UseFormRegister<Inputs>;
-  errors: FieldErrors<Inputs>;
+  register: UseFormRegister<T>;
+  errors: FieldErrors;
 };
 
-const SelectInput: React.FC<SelectInputProps> = ({
+export const SelectInput = <T extends FieldValues>({
   label,
   name,
   options,
   register,
   errors,
-}) => {
+}: SelectInputProps<T>) => {
   return (
     <div className="mb-4">
       <label>{label}</label>
@@ -39,5 +42,3 @@ const SelectInput: React.FC<SelectInputProps> = ({
     </div>
   );
 };
-
-export default SelectInput;

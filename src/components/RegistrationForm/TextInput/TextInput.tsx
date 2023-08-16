@@ -1,26 +1,30 @@
 import { FormErrorMessage } from '@/components/RegistrationForm/FormErrorMessage/FormErrorMessage';
 import { ValidationErrorMessages } from '@/components/RegistrationForm/utitls/enums';
-import React from 'react';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { Inputs } from '../utitls/types';
+import {
+  FieldErrors,
+  FieldValues,
+  Path,
+  UseFormRegister,
+} from 'react-hook-form';
+import { InputType } from '../utitls/types';
 
-export type TextInputProps = {
+type TextInputProps<T extends FieldValues> = {
   label: string;
-  type: 'text' | 'date' | undefined;
-  name: keyof Inputs;
-  register: UseFormRegister<Inputs>;
-  errors: FieldErrors<Inputs>;
+  type: InputType;
+  name: Path<T>;
+  register: UseFormRegister<T>;
+  errors: FieldErrors;
   valueAsDate?: boolean;
 };
 
-export const TextInput: React.FC<TextInputProps> = ({
+export const TextInput = <T extends FieldValues>({
   label,
   type = 'text',
   name,
   register,
   errors,
   valueAsDate = false,
-}) => {
+}: TextInputProps<T>) => {
   return (
     <div className="mb-4">
       <label>{label}</label>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SelectInput from '../SelectInput';
+import { SelectInput } from '../SelectInput';
 
 describe('SelectInput component', () => {
   const mockRegister = jest.fn();
