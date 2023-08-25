@@ -35,7 +35,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 <img width="1024" alt="Screenshot 2023-08-16 at 07 43 47" src="https://github.com/Rokas-Augunas-Eng/meetup-rsvp-app/assets/78915609/cc5292f5-859f-497d-8c43-2148fb6207b6">
 
 ### Registration Form
-<img width="1719" alt="Screenshot 2023-08-16 at 07 44 40" src="https://github.com/Rokas-Augunas-Eng/meetup-rsvp-app/assets/78915609/40d4fcae-cfc8-4fbc-bc1d-a7025e877c56">
+<img width="790" alt="Screenshot 2023-08-25 at 16 00 17" src="https://github.com/Rokas-Augunas-Eng/meetup-rsvp-app/assets/78915609/bf7f03e1-bfd0-457e-bb5d-b7866fdc7fa9">
+
 
 ### Guest Info
 <img width="1719" alt="Screenshot 2023-08-16 at 07 45 03" src="https://github.com/Rokas-Augunas-Eng/meetup-rsvp-app/assets/78915609/baae5449-bdfe-43b8-956e-145b4b299417">
