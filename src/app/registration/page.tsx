@@ -1,5 +1,5 @@
 'use client';
-import { submitFormData } from '@/api/submitFormData';
+import { api } from '@/api/submitFormData';
 import { LinkButton } from '@/components/LinkButton/LinkButton';
 import { Modal } from '@/components/Modal/Modal';
 import { RegistrationForm } from '@/components/RegistrationForm/RegistraionForm';
@@ -22,7 +22,7 @@ export default function RegistrationPage() {
 
   const onSubmitForm = async (data: FormData<Inputs>) => {
     data.dob = new Date(data.dob);
-    const isSuccess = await submitFormData(data);
+    const isSuccess = await api.submitFormData(data);
     if (isSuccess) {
       reset();
       setIsFormSubmitted(true);

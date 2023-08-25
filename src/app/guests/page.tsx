@@ -8,7 +8,7 @@ import unidecode from 'unidecode';
 
 const removeAccents = (text: string) => unidecode(text);
 
-export default function GuestsPage(): JSX.Element {
+export default function GuestsPage() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const filteredGuests = GUEST_DATA.filter(
     (guest) =>
