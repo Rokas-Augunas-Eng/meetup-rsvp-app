@@ -5,6 +5,7 @@ import { RegistrationFields } from '../RegistrationFields';
 describe('RegistrationFields component', () => {
   const mockRegister = jest.fn();
   const mockErrors = {};
+  const mockOptions = [{ value: '0', label: '0' }];
 
   beforeEach(() => {
     mockRegister.mockClear();
@@ -33,9 +34,10 @@ describe('RegistrationFields component', () => {
   it('renders SelectInput component correctly', () => {
     const field: InputField = {
       component: 'selectInput',
-      label: 'Name',
+      label: 'Number of Guests',
       name: 'numberOfGuests',
       type: 'text',
+      options: mockOptions,
     };
 
     render(
@@ -46,7 +48,7 @@ describe('RegistrationFields component', () => {
       />
     );
 
-    expect(screen.getByText('Profession')).toBeInTheDocument();
+    expect(screen.getByText('Number of Guests')).toBeInTheDocument();
     expect(screen.getByRole('combobox')).toBeInTheDocument();
   });
 

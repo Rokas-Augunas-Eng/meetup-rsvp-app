@@ -1,13 +1,18 @@
-export const professionOptions = [
+export const professionOptions: SelectInputOptions[] = [
   { value: 'student', label: 'Student' },
   { value: 'employed', label: 'Employed' },
 ];
 
-export const numberOfGuestsOptions = [
+export const numberOfGuestsOptions: SelectInputOptions[] = [
   { value: '0', label: '0' },
   { value: '1', label: '1' },
   { value: '2', label: '2' },
 ];
+
+export type SelectInputOptions = {
+  value: string;
+  label: string;
+};
 
 export type FieldName =
   | 'fullName'
@@ -23,7 +28,7 @@ export type InputField = {
   type?: 'text' | 'date';
   name: FieldName;
   component: 'textInput' | 'selectInput' | 'textareaInput';
-  options?: { value: string; label: string }[];
+  options?: SelectInputOptions[];
   value?: number;
 };
 

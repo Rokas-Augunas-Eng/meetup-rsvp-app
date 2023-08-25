@@ -7,7 +7,7 @@ import {
 import { SelectInput } from '../SelectInput/SelectInput';
 import { TextareaInput } from '../TextAreaInput/TextAreaInput';
 import { TextInput } from '../TextInput/TextInput';
-import { InputField, professionOptions } from '../utitls/inputData';
+import { InputField, SelectInputOptions } from '../utitls/inputData';
 
 type RegistrationFieldProps<T extends FieldValues> = {
   field: InputField;
@@ -33,9 +33,9 @@ export const RegistrationFields = <T extends FieldValues>({
   } else if (field.component === 'selectInput') {
     return (
       <SelectInput
-        label="Profession"
-        name={'profession' as FieldPath<T>}
-        options={professionOptions}
+        label={field.label}
+        name={field.name as FieldPath<T>}
+        options={field.options as SelectInputOptions[]}
         register={register}
         errors={errors}
       />
